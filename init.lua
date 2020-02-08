@@ -7,7 +7,7 @@ to this software to the public domain worldwide. This software is
 distributed without any warranty.
 ]]
 
-local MAX_INACTIVE_TIME = 300
+local MAX_INACTIVE_TIME = tonumber(minetest.settings:get("afkkick.max_inactive_time") or "1800")
 local CHECK_INTERVAL = 1
 local WARN_TIME = 20
 
@@ -26,7 +26,7 @@ minetest.register_on_leaveplayer(function(player)
 	players[playerName] = nil
 end)
 
-minetest.register_on_chat_message(function(playerName, message)
+minetest.register_on_chat_message(function(playerName)
 	players[playerName]["lastAction"] = minetest.get_gametime()
 end)
 
