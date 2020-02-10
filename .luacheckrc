@@ -1,5 +1,6 @@
 
 globals = {
+	"afkkick"
 }
 
 read_globals = {
