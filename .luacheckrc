@@ -12,5 +12,5 @@ read_globals = {
 	"dump",
 
 	-- deps
-	"default", "minetest"
+	"default", "minetest", "xp_redo"
 }
