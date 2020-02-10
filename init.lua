@@ -78,7 +78,6 @@ minetest.register_globalstep(function()
 					-- player is out of kick location
 					afkkick.players[playerName].kickAt = 0
 				end -- if at spawn or not
-			end -- if got XP
 		end -- if real player
 	end -- for loop
 end -- function
