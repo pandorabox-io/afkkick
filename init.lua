@@ -59,25 +59,25 @@ minetest.register_globalstep(function()
 		playerName = player:get_player_name()
 		-- only bother if is a real player
 		if 0 < #playerName then
-				--Check if this player is near spawn
-				playerPos = player:get_pos()
-				isInX = (playerPos.x > afkkick.posB.x) and (playerPos.x < afkkick.posA.x)
-				isInY = (playerPos.y > afkkick.posB.y) and (playerPos.y < afkkick.posA.y)
-				isInZ = (playerPos.z > afkkick.posB.z) and (playerPos.z < afkkick.posA.z)
-				isAtSpawn = isInX and isInY and isInZ
-				if isAtSpawn then
-					kickTime = afkkick.players[playerName].kickAt
-					if 0 == kickTime then
-						-- first time we check and player is at spawn
-						players[playerName].kickAt = currentTime + afkkick.maxInactiveTime
-					elseif kickTime < currentTime then
-						-- player has been here long enough, kick
-						minetest.kick_player(playerName, afkkick.kickMessage)
-					end
-				else
-					-- player is out of kick location
-					afkkick.players[playerName].kickAt = 0
-				end -- if at spawn or not
+			--Check if this player is near spawn
+			playerPos = player:get_pos()
+			isInX = (playerPos.x > afkkick.posB.x) and (playerPos.x < afkkick.posA.x)
+			isInY = (playerPos.y > afkkick.posB.y) and (playerPos.y < afkkick.posA.y)
+			isInZ = (playerPos.z > afkkick.posB.z) and (playerPos.z < afkkick.posA.z)
+			isAtSpawn = isInX and isInY and isInZ
+			if isAtSpawn then
+				kickTime = afkkick.players[playerName].kickAt
+				if 0 == kickTime then
+					-- first time we check and player is at spawn
+					afkkick.players[playerName].kickAt = currentTime + afkkick.maxInactiveTime
+				elseif kickTime < currentTime then
+					-- player has been here long enough, kick
+					minetest.kick_player(playerName, afkkick.kickMessage)
+				end
+			else
+				-- player is out of kick location
+				afkkick.players[playerName].kickAt = 0
+			end -- if at spawn or not
 		end -- if real player
 	end -- for loop
 end -- function
