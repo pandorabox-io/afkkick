@@ -1,5 +1,6 @@
 --[[
 Afk Kick mod for Minetest by GunshipPenguin
+re-written for Pandorabox.io by SwissalpS
 
 To the extent possible under law, the author(s)
 have dedicated all copyright and related and neighboring rights
