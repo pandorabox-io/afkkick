@@ -12,7 +12,7 @@ afkkick = {}
 afkkick.maxInactiveTime = tonumber(minetest.settings:get("afkkick.max_inactive_time") or "1800")
 afkkick.checkInterval = 120
 afkkick.radius = 13
-afkkick.kickMessage = "Kicked for loitering at spawn"
+afkkick.kickMessage = "for loitering at spawn"
 
 -- one time calculation of kickarea
 local spawnPos = minetest.string_to_pos(minetest.settings:get("static_spawnpoint") or "(0, 0, 0)")
